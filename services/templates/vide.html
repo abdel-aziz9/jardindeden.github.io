@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HESIDESO</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.png' %}" />
+        <!-- Core theme CSS (incluant Bootstrap)-->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cs_style.css' %}">
+    </head>
+<body>
+
+	<header>
+
+		<div class="container-fluid" style="background-color: #ECECEC;">
+			<div class="logo-head"><img src="{% static 'assets/logo.png' %}"></div>
+		</div>
+
+		<nav class="navbar navbar-expand-lg nav-bar" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		            <span class="navbar-toggler-icon"></span>
+		        </button>
+
+		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav text-uppercase">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#produits">Nos produits</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#vision">A propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="popup">
+                <div class="container">
+                    <i class="fa fa-check-circle" style="font-size: 50px; color: #ffc800;"></i>
+                    <br>
+                    <p>Vos détails ont bien été soumis et votre demande a été enregistrée. Nous vous contactons d'ici peu.</p>
+                    <button class="btn btn-primary text-uppercase" type="reset" onclick="closepopup()">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+
+		</nav>
+
+	</header>
+        {% if contacter %}
+            <script>
+                document.getElementById("popup").style.top = '-10px'
+            </script>
+        {% endif %}
+
+        <script type="text/javascript">
+            function closepopup(){
+                document.getElementById("popup").style.top = '-500px'
+                setTimeout(ext, 200);
+                function ext(){
+                    history.go(-1)
+                }
+            }
+        </script>
+    </body>
+</html>

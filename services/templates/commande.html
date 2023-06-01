@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>HESIDESO</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/logo.png' %}" />
+        <!-- Core theme CSS (incluant Bootstrap)-->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/cs_style.css' %}">
+    </head>
+<body>
+
+	<header>
+
+		<div class="container-fluid" style="background-color: #ECECEC;">
+			<div class="logo-head"><img src="{% static 'assets/logo.png' %}"></div>
+		</div>
+
+		<nav class="navbar navbar-expand-lg nav-bar" id="mainNav">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		            <span class="navbar-toggler-icon"></span>
+		        </button>
+
+		        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav text-uppercase">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#produits">Nos produits</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#vision">A propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+		</nav>
+
+	</header>
+
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 style="margin-top: 20px; border-bottom: solid;
+                               border-color: #487455;
+                               border-width: 5px;
+                               padding-bottom: 10px;" class="section-heading text-uppercase">Passer une commande</h2>
+                    <h3 style="margin-top: 20px; margin-bottom: 35px;" class="section-subheading text-muted">Remplissez ce formulaire pour votre commande !</h3>
+                </div>
+
+
+                <form class="form-devis" id="Form" name="Form" method="post" onsubmit="return valider()" action="{% url 'commande' %}">
+                    {% csrf_token %}
+                    <div class="row align-items-stretch mb-5">
+                        <div class="col-md-6 section_devis">
+                            <div class="row">
+                                <div>
+                                    <input type="text" required id="product_name" name="product_name" value="{{ produit.name }}">
+                                </div>
+                                <div class="input_devis">
+                                    <input type="text" required id="name" name="name" placeholder="Nom *">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col input_devis">
+                                    <input type="text" required id="email" name="email" placeholder="Email *">
+                                </div>
+                                <div class="col input_devis">
+                                    <input type="text" required id="phone" name="phone" placeholder="Telephone *">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 section_devis">
+                            <textarea placeholder="Ecrivez quelque chose ici" required id="message" name="message"></textarea>
+                        </div>
+                        <div class="btn-devis" style="margin-top: 20px;">
+                            <button class="btn btn-primary text-uppercase" type="submit">Soumettre</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </section>
+
+    <footer id="footer">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col" style="text-align: center;">
+                    	<h4><u>Contact</u></h4>
+                    	<p>+237690359137 <br> info@hesideso.com <br> Garoua, cameroun Djamboutou</p>
+                    </div>
+                    <div class="col-md">
+                        <div class="icons">
+							<a href="#"><img src="{% static 'assets/icone/twitter.png' %}"></a>
+							<a href="#"><img src="{% static 'assets/icone/facebook.png' %}"></a>
+							<a href="#"><img src="{% static 'assets/icone/linkedin.png' %}"></a>
+							<a href="#"><img src="{% static 'assets/icone/instagram.png' %}"></a>
+						</div>
+						<p>Copyright © 2022. Tout droit reserves par HESIDESO</p>
+                    </div>
+                    <div class="col-md">
+                        <a class="link-light text-decoration-none" href="{% url 'terms_of_use' %}">Conditions d'utilisation</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
