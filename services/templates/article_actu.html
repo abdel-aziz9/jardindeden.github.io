@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Jardin d'eden</title>
+    <meta name="keywords" content="agriculture">
+    <meta name="description" content="Bienvenu a jardin d'eden, une entreprise qui fait dans l'agriculture et donc l'objctif de proner un monde sain et vert">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+</head>
+<body>
+
+	<!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'assets/images/loading.gif' %}" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a style="color: #fff; font-size: 40px;" class="navbar-brand" href="#">JARDIN D'EDEN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <div class="location_icon_bottum_tt">
+                            <ul>
+                                <li><img src="{% static 'assets/icon/email1.png' %}" />jardindedencameroun@gmail.com</li>
+
+                                <li><img src="{% static 'assets/icon/call1.png' %}" />+(237)697286053/674577513</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 location_icon_bottum">
+                       <div class="row">
+                            <nav class="main-menu">
+                                <ul class="menu-area-main">
+                                    <li class="active"> <a href="{% url 'home' %}">Accueil</a> </li>
+                                    <li> <a href="{% url 'home' %}">Vision</a> </li>
+                                    <li><a href="{% url 'home' %}">Informations</a></li>
+                                    <li><a href="{% url 'home' %}">Realisation</a></li>
+                                    <li><a href="{% url 'home' %}">Actu</a></li>
+                                    <li><a href="mailto:jardindedencameroun@gmail.com">Contact</a></li>
+
+                                </ul>
+                            </nav>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+
+        {% load markdown_extras %}
+
+        <section class="page-section page-article" style="padding: 40px;">
+            <div class="container">
+                <div class="row">
+                    <h1 style="margin-top: 30px; font-size: 27px;">{{ actu.titre }}</h1>
+                    <center>
+                    <div class="row en_tete img-article colone">
+                        <img src="{{ actu.image.url }}">
+                    </div>
+                    </center>
+                    <div class="section-article">
+                        <div class="section-article-content" style="margin-top: 100px; margin-bottom: 40px;">
+                            {{ actu.content|markdown_filter|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<!--  footer -->
+    <footer>
+
+        <div class="footer top_layer " id="actu">
+            <div class="container">
+                <div class="col">
+                    <div class="title">
+                        <h2 style="color: #fff;">Actu</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                <p>© 2023 Tout droit reservés par jardin d'eden <a href="https://html.design/"> </a></p>
+                <p style="color: #000;">concu par <a href="https://ibavdigital.pythonanywhere.com/"> ibavdigital </a></p>
+
+        </div>
+        </div>
+    </footer>
+
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                openEffect: "none",
+                closeEffect: "none"
+            });
+
+            $(".zoom").hover(function() {
+
+                $(this).addClass('transition');
+            }, function() {
+
+                $(this).removeClass('transition');
+            });
+        });
+    </script>
+    <script>
+        // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+        // Australia.
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: {
+                    lat: 40.645037,
+                    lng: -73.880224
+                },
+            });
+
+            var image = 'images/maps-and-flags.png';
+            var beachMarker = new google.maps.Marker({
+                position: {
+                    lat: 40.645037,
+                    lng: -73.880224
+                },
+                map: map,
+                icon: image
+            });
+        }
+    </script>
+    <!-- google map js -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+    <!-- end google map js -->
+</body>
+</html>

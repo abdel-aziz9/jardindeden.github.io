@@ -2,46 +2,43 @@ from django.db import models
 from django.utils.text import slugify
 
 
-class Produit(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField()
-    image = models.ImageField(upload_to='image_cat')
-    description = models.TextField(null=True, blank=True)
-
-    def as_default(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.name
-
-
-class Profil(models.Model):
-    titre = models.CharField(max_length=255)
-    slug = models.SlugField()
-    name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='image_profil')
-
-
 class Terms(models.Model):
     content = models.TextField()
 
 
-class Commande(models.Model):
-    username = models.CharField(max_length=100, default='')
-    slug = models.SlugField()
-    product_name = models.CharField(max_length=255, default='')
-    email_user = models.EmailField()
-    description = models.TextField()
-    tel = models.CharField(max_length=20, default='------------')
+class Article(models.Model):
+    titre = models.CharField(max_length=150, unique=True, verbose_name='Titre')
+    slug = models.SlugField(max_length=150, blank=True, unique=True)
+    image = models.ImageField(upload_to='image_article')
+    last_update = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(blank=True, null=True)
+    published = models.BooleanField(default=False, verbose_name="Publié")
+    content = models.TextField(default='')
 
     def as_default(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.username)
+            self.slug = slugify(self.titre)
 
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.username
+        return self.titre
+
+
+class Actu(models.Model):
+    titre = models.CharField(max_length=150, unique=True, verbose_name='Titre')
+    slug = models.SlugField(max_length=150, blank=True, unique=True)
+    image = models.ImageField(upload_to='image_article')
+    last_update = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(blank=True, null=True)
+    published = models.BooleanField(default=False, verbose_name="Publié")
+    content = models.TextField(default='')
+
+    def as_default(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.titre)
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.titre
