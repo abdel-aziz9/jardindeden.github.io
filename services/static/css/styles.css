@@ -1,0 +1,25 @@
+.navbar{
+
+overflow: hidden;
+background: DarkGreen;
+font-family: Arial;
+
+}
+.navbar a{
+	float: right;
+font-size: 16px;
+color: white;
+text-align: center;
+padding: 5px 8px;
+text-decoration: none;
+}
+
+
+
+.navbar a:hover{
+	background-color: white;
+	color:green;
+	border-radius:9PX
+}
+
+
