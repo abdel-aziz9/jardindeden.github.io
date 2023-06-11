@@ -1,1 +1,0 @@
-web: gunicorn BavMain.wsgi --log-file -
