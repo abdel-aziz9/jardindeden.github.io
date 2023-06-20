@@ -258,21 +258,37 @@
                             <h2>Nos realisations</h2>
                         </div>
                     </div>
-					<div class="container text_tronque2">
-						<p style="font-size: 20px;">
+					<div class="container ">
+                        <div class="offer_box">
+                            <figure><img src="{% static 'assets/images/formation.jpg' %}" alt="img" /></figure>
+                            <p style="font-size: 20px;">
 							-	Formation des femmes et des jeunes pour la production de 300 000 plants forestiers (Acacias sp, Khaya senegalensis, Daniellia oliveri. Afzelia africana …) et fruitiers (Anacardium occidentale, Mangifera indica…)<br>
-							<br>-	Formation des femmes et des jeunes pour la production de 20 tonnes de fertilisants naturels (18 tonnes de compost et 02 tonnes de biochar) dans le cadre de l’appui à la restauration des terres dégradées de la localité de Ndoudja dans l’Arrondissement de Pitoa ;<br>
-							<br>-	Formation des femmes et des jeunes sur la production et l’utilisation des biopesticides à base de Neem ;<br><span class="texte-cache2">
-							<br>-	Mise en place de 10 hectares de champs semenciers pour plantes de couverture en vue de la restauration des sols dégradés (Mucuna puerien, Cajanus cajans, Crotaria retusa…) ;<br>
-							<br>-	Appui à la mise des dispositifs antiérosifs dans la localité de Ndoudja dans l’Arrondissement de Pitoa (1500 m de cordons pierreux) ;<br>
-							<br>-	Appui au reboisement de 70 hectares dans les localités de Gounougou, Laiendé lagdo, Ouro-Doukoudjé et Bengui… dans l’Arrondissement de Lagdo;<br>
+							  <br>
+                                -	Formation des femmes et des jeunes pour la production de 20 tonnes de fertilisants naturels (18 tonnes de compost et 02 tonnes de biochar) dans le cadre de l’appui à la restauration des terres dégradées de la localité de Ndoudja dans l’Arrondissement de Pitoa ;</br>
+                             </p><br>
+<figure><img src="{% static 'assets/images/sensibiliser.jpg' %}" alt="img" /></figure>
+                            <p style="font-size: 20px;">
+                                -	Formation des femmes et des jeunes sur la production et l’utilisation des biopesticides à base de Neem ;<br>
+
+                            <br>
+                                -	Mise en place de 10 hectares de champs semenciers pour plantes de couverture en vue de la restauration des sols dégradés (Mucuna puerien, Cajanus cajans, Crotaria retusa…) ;<br>
+                             </p><br>
+
+                             <figure><img style="widh:auto;border-radius:11px" src="{% static 'assets/images/terrain.jpg' %}" alt="img" /></figure>
+                            <p style="font-size: 20px;">
+                            -	Appui à la mise des dispositifs antiérosifs dans la localité de Ndoudja dans l’Arrondissement de Pitoa (1500 m de cordons pierreux) ;<br>
+                            </p><br>
+                             <p style="font-size: 20px;">
+                            <br>-	Appui au reboisement de 70 hectares dans les localités de Gounougou, Laiendé lagdo, Ouro-Doukoudjé et Bengui… dans l’Arrondissement de Lagdo;<br>
 							<br>-	Appui à la commune de Lagdo pour la réhabilitation de 90ha des terres dégradées et à la stabilisation des berges du Lac
-							<br></span>
+                             </p>
+                                 <br>
+                        </div>
 
 
 						</p>
 
-						<button class="btn" onclick="afficherTexte2()">Voir plus</button>
+
 					</div>
 				</div>
             </div>
@@ -371,25 +387,9 @@
         }
 
 
-            function afficherTexte2() {
-        var texte = document.querySelector('.texte-cache2');
-        var bouton = document.querySelector('.text_tronque2 button');
-        if (texte.style.display === "inline") {
-            texte.style.display = "none";
-            bouton.innerHTML = "Voir plus";
-        } else {
-            texte.style.display = "inline";
-            bouton.innerHTML = "Voir moins";
-        }
 }
 
-window.onload = function() {
-	var texte2 = document.querySelector('.texte-cache2');
-    var bouton2 = document.querySelector('.text_tronque2 button');
-	texte2.style.display = "none";
-	bouton2.innerHTML = "Voir plus";
-}
-    </script>
+ </script>
 
 </body>
 
